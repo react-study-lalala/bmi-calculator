@@ -60,10 +60,11 @@ export default function App() {
           id="height-type"
           name="height-type"
           data-testid="height-type"
+          value={heightType}
           onChange={(e) => setHeightType(e.target.value as HeightType)}
         >
           {Object.values(HeightType).map((value) => (
-            <option key={value} value={value} defaultValue={heightType}>
+            <option key={value} value={value}>
               {value}
             </option>
           ))}
@@ -83,10 +84,11 @@ export default function App() {
           id="weight-type"
           name="weight-type"
           data-testid="weight-type"
+          value={weightType}
           onChange={(e) => setWeightType(e.target.value as WeightType)}
         >
           {Object.values(WeightType).map((value) => (
-            <option key={value} value={value} defaultValue={weightType}>
+            <option key={value} value={value}>
               {value}
             </option>
           ))}
