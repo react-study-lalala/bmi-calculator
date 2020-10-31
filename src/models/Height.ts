@@ -1,4 +1,4 @@
-import HeightType from "../enums/HeightType";
+import { HeightType } from "../enums";
 
 export default class Height {
   private _value: number;

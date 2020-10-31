@@ -2,8 +2,7 @@ import { render, screen } from "@testing-library/react";
 import React from "react";
 import App from "./App";
 import userEvent from "@testing-library/user-event";
-import HeightType from "./enums/HeightType";
-import WeightType from "./enums/WeightType";
+import { HeightType, WeightType } from "./enums";
 
 describe("App", () => {
   const inputBMIValues = async (
