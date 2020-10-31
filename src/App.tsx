@@ -4,9 +4,19 @@ export default function App() {
   const [weight, setWeight] = useState<number>(30);
   const [bmi, setBMI] = useState<number>(0);
 
-  useEffect(() => {
+  const getMessage = (bmi: number) => {
+    if (bmi >= 18.5 && bmi <= 25) return "정상적인 몸무게입니다.";
+    else if (bmi > 25) return "과체중입니다. 의사와 상의하세요.";
+    else if (bmi < 18.5) return "저체중입니다. 의사와 상의하세요.";
+  }
+
+  const getBMI = (weight: number, height: number) => {
     const heightToMeter = height / 100;
-    setBMI(() => weight / (heightToMeter * heightToMeter));
+    return weight / (heightToMeter * heightToMeter);
+  }
+
+  useEffect(() => {
+    setBMI(() => getBMI(weight, height));
   }, [height, weight]);
 
   return (
@@ -35,6 +45,7 @@ export default function App() {
         />
       </div>
       <div>당신의 BMI 지수는: {bmi.toFixed(2)}</div>
+      <div>{getMessage(bmi)}</div>
     </div>
   );
 }
