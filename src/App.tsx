@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 
-enum WeightType {
+export enum WeightType {
   pounds = "pounds",
   kilogram = "kilogram",
 }
-enum HeightType {
+export enum HeightType {
   inch = "inch",
   centimeter = "centimeter",
 }
 
-class Weight {
+export class Weight {
   private _value: number;
   private _type: WeightType;
   constructor(value: number, type: WeightType) {
@@ -28,7 +28,7 @@ class Weight {
   }
 }
 
-class Height {
+export class Height {
   private _value: number;
   private _type: HeightType;
   constructor(value: number, type: HeightType) {
@@ -46,7 +46,7 @@ class Height {
   }
 }
 
-class BMI {
+export class BMI {
   private _weight: Weight;
   private _height: Height;
   constructor(weight: Weight, height: Height) {
@@ -99,8 +99,9 @@ export default function App() {
           onChange={(e) => setHeight(Number(e.target.value))}
         />
         <select
-          name="height-type"
           id="height-type"
+          name="height-type"
+          data-testid="height-type"
           onChange={(e) => setHeightType(e.target.value as HeightType)}
         >
           {Object.values(HeightType).map((value) => (
@@ -121,8 +122,9 @@ export default function App() {
           onChange={(e) => setWeight(Number(e.target.value))}
         />
         <select
-          name="weight-type"
           id="weight-type"
+          name="weight-type"
+          data-testid="weight-type"
           onChange={(e) => setWeightType(e.target.value as WeightType)}
         >
           {Object.values(WeightType).map((value) => (
