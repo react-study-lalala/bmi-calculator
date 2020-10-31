@@ -1,50 +1,8 @@
 import React, { useEffect, useState } from "react";
-
-export enum WeightType {
-  pounds = "pounds",
-  kilogram = "kilogram",
-}
-export enum HeightType {
-  inch = "inch",
-  centimeter = "centimeter",
-}
-
-export class Weight {
-  private _value: number;
-  private _type: WeightType;
-  constructor(value: number, type: WeightType) {
-    this._value = value;
-    this._type = type;
-  }
-
-  get value() {
-    switch (this._type) {
-      case WeightType.pounds:
-        return this._value / 2.205;
-      case WeightType.kilogram:
-      default:
-        return this._value;
-    }
-  }
-}
-
-export class Height {
-  private _value: number;
-  private _type: HeightType;
-  constructor(value: number, type: HeightType) {
-    this._value = value;
-    this._type = type;
-  }
-  get value() {
-    switch (this._type) {
-      case HeightType.inch:
-        return this._value * 2.54;
-      case HeightType.centimeter:
-      default:
-        return this._value;
-    }
-  }
-}
+import HeightType from "./enums/HeightType";
+import WeightType from "./enums/WeightType";
+import Height from "./models/Height";
+import Weight from "./models/Weight";
 
 export class BMI {
   private _weight: Weight;
